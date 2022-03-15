@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--id(唯一标识),class(类全路径),Spring默认创建对象是采用无参构造创建对象-->
+    <bean id="user" class="com.zeng.springioc.User"/>
+
+    <!--通过set方法注入属性-->
+    <bean id="car" class="com.zeng.springxml.Car">
+        <property name="color" value="红色"/>
+        <property name="speed" value="100"/>
+    </bean>
+
+</beans>
