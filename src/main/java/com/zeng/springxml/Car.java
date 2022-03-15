@@ -1,7 +1,7 @@
 package com.zeng.springxml;
 
 /**
- * 基于XML方式注入属性
+ * 基于XML方式注入属性(set方式注入属性)
  * DI:Spring特性,依赖注入,本质上就是注入属性(Spring采用两种属性注入:1.set方式注入属性 2.有参构造注入属性)
  *
  * @author Mr-Zeng
