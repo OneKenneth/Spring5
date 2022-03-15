@@ -12,6 +12,7 @@
         <property name="speed" value="100"/>
     </bean>
 
+    <!--通过有参构造方式注入属性-->
     <bean id="book" class="com.zeng.springxml.Book">
         <constructor-arg name="bookName" value="Spring实战"/>
         <constructor-arg name="price" value="70"/>
