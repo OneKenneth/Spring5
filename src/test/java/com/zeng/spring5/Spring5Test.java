@@ -3,9 +3,11 @@ package com.zeng.spring5;
 import com.zeng.springioc.User;
 import com.zeng.springxml.Book;
 import com.zeng.springxml.Car;
+import com.zeng.springxml.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import sun.reflect.generics.tree.VoidDescriptor;
 
 public class Spring5Test {
 
@@ -39,5 +41,15 @@ public class Spring5Test {
         System.out.println(book);
         book.printAttributes();
         book.workBook("张三");
+    }
+
+    /**
+     * XML方式注入外部bean
+     */
+    @Test
+    public void test4(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean1.xml");
+        UserService userService = applicationContext.getBean("userService", UserService.class);
+        userService.send();
     }
 }

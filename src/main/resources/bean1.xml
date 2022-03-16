@@ -1,21 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--id(唯一标识),class(类全路径),Spring默认创建对象是采用无参构造创建对象-->
     <bean id="user" class="com.zeng.springioc.User"/>
 
     <!--通过set方法注入属性-->
     <bean id="car" class="com.zeng.springxml.Car">
-        <property name="color" value="红色"/>
+        <!--<property name="color" value="红色"/>-->
+        <!--特殊字符需要<![CDATA[]]>进行标识-->
+        <property name="color"><value><![CDATA[<红色>]]></value></property>
         <property name="speed" value="100"/>
+        <!--null(空值)设置-->
+        <!--<property name="speed"><null/></property>-->
     </bean>
+    <!--通过set方法注入属性(p名称空间注入)-->
+    <!--<bean id="car" class="com.zeng.springxml.Car" p:color="黑色" p:speed="50"/>-->
 
     <!--通过有参构造方式注入属性-->
     <bean id="book" class="com.zeng.springxml.Book">
         <constructor-arg name="bookName" value="Spring实战"/>
         <constructor-arg name="price" value="70"/>
     </bean>
+
+
+    <!--XML方式注入外部bean-->
+    <bean name="userService" class="com.zeng.springxml.service.UserService">
+        <property name="userDAO" ref="userDAO"/>
+    </bean>
+    <bean name="userDAO" class="com.zeng.springxml.dao.impl.UserDAOImpl"/>
+
 
 </beans>
